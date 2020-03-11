@@ -1,7 +1,4 @@
-# Basic-image-segmentation-using-Keras-per-the-work-of-Divamgupta
-Using Pre-trained models to isolate features in photo
-
-Image-Segmentation-using-Keras-Segmentation-per-the-work-of-Divamgupta
+# Image-Segmentation-using-Keras-Segmentation-per-the-work-of-Divamgupta
 This repository came from Divamgupta's GitHub repository on Image Segmentation Keras:
 
 https://github.com/divamgupta/image-segmentation-keras
@@ -23,6 +20,5 @@ We are working in Ubuntu and each python .py program is driven from an xterm usi
 A second repository will be similar to this will except we will be using the kMean clusters for image segmentation as presented by Vidhya. Once we perfrom the image segmentation we will be repeating the same type of segment discrimination as used in this repository.
 
 Our primary goal is to categorize the different types of grains observed in a clastic petrographic thin sections. This is work in progress. We will also estimate the Petrophysical Rock Types and Petrophysical properties from a clastic Thin Section photomicrograph.
-
 
 
