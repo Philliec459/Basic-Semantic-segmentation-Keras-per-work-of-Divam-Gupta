@@ -5,7 +5,11 @@ https://github.com/divamgupta/image-segmentation-keras
 
 This repository is based on studying Divamgupta's GitHub repository, blog and other written materials  that I have found online. This is great work and a real help to a novice such as myself. I will be creating a few repositories using my interpretation of how this all might be implemented. I might be wrong, so any constructive criticism is welcome.
 
-This first repository will be based on using Divamgupta's pre-trained example shown in his Readme file. We use the pretrained code to create segmentation items from a photo using load_pretrain_and_create_image.py driven from an xterm. 
+This first repository will be based on using Divamgupta's pre-trained example shown in his Readme file. This is the original photo that we are working from:
+
+![Image](1_input.jpg)
+
+We use the pretrained code to create segmentation items from a photo using load_pretrain_and_create_image.py driven from an xterm. 
 
 ![Image](bed_out.png)
 
