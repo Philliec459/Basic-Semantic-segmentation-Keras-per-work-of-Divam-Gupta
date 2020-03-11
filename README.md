@@ -1,9 +1,9 @@
 # Image-Segmentation-using-Keras-Segmentation-per-the-work-of-Divamgupta
-This repository initially came from Divamgupta's GitHub repository on Image Segmentation using Keras:
+This repository initially came from Divam Gupta's GitHub repository on Image Segmentation using Keras:
 
 https://github.com/divamgupta/image-segmentation-keras
 
-This repository is based on studying Divamgupta's GitHub repository, blog and other written materials that we have found online. This is great work and a real resource to a novice such as myself. we will be creating a few repositories using our interpretation of how this all might be implemented. We might be wrong, so any constructive criticism is welcome.
+This repository is based on studying Divam Gupta's GitHub repository, blog and other written materials that we have found online. This is great work and a real resource to a novice such as myself. we will be creating a few repositories using our interpretation of how this all might be implemented. We might be wrong, so any constructive criticism is welcome.
 
 This first repository will be based on using Divamgupta's pre-trained example shown in his Readme file. This is the original photo that we are working from:
 
