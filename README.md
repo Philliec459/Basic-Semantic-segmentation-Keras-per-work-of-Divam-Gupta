@@ -24,35 +24,18 @@ out = model.predict_segmentation(
     out_fname="bed_out.png"
 )
 
-and this is the predicted output from the original bedroom photo shown below. 
+and the following image is the predicted image segmentation from the original bedroom photo shown above. 
 
 ![Image](bed_out.png)
 
-To determine the segment or item(s) values that we want, we interactively scan the photo taking note of the pixel values associated with the segments in the photograph that we are trying to isolate. The python program is interactive_plots_with_box.py. As can be seen below, the bed has a value of 61 and the rug has a value of 80. 
+To determine the segment or item(s) values that we want to isolate, we interactively scan the photo taking note of the pixel values associated with the segments in the photograph that we are trying to isolate. The python program for this program is interactive_plots_with_box.py. As can be seen below, the bed has a value of 61 and the rug has a value of 80. 
 
 ![Image](interactive.png)
 
 In this instance we only label the segement for the bed or value 61. 
 
-label = np.zeros(data.shape )
-#label[data ==68] = 68  #walls
-#label[data ==54] = 54 #window with no drapes
-#
-#label[data >2] = 86 #well defined edges of each segment using sobel filter
-
-#label[data ==80] = 80 #rug
-#label[data ==56] = 56 #table
-#label[data ==77] = 77 #edge of pillows
-#label[data ==18] = 18 #pillows
-label[data ==61]  = 61 #bed
-#label[data ==52]  = 52 #ceiling
-#label[data ==33]  = 33 #floor and dark parts
-#label[data ==68]  = 68 #fchandalier
-#label[data ==77]  = 77 #windows with drapes
-#label[data ==59]  = 59 #lamps
-#label[data ==20]  = 20 #back wall dresser
-#label[data ==56]  = 56 #plant in corner
-
+    label = np.zeros(data.shape )
+    label[data ==61]  = 61 #bed
 
 We are working with a bedroom picture under the sample_images subdirectory (1_input.jpg). After discriminating all of the major features in the photo as shown above, we can then isolate a particular item in the picture (bed), and create a subsequent image showing just that feature with a green rectangle around it. 
 
