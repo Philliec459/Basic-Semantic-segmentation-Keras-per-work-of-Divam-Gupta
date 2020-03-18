@@ -9,20 +9,58 @@ This first repository will be based on using Divamgupta's pre-trained example sh
 
 ![Image](1_input.jpg)
 
-We use the pre-trained code to create segmentation items from this photo using load_pretrain_and_create_image.py driven from an xterm. 
+We use the pre-trained code to create segmentation items from the above photo using load_pretrain_and_create_image.py driven from an xterm. The following pre-pretrain models are available, but we have found the pspnet_50_ADE_20K to work the best in this instance.
+
+model = pspnet_50_ADE_20K() # in between detail - load the pretrained model trained on ADE20k dataset
+
+#model = pspnet_101_cityscapes() # too much detail - load the pretrained model trained on Cityscapes dataset
+
+#model = pspnet_101_voc12() # Just the People - load the pretrained model trained on Pascal VOC 2012 dataset
+
+Our pre-trained model prediction is made with just a few lines of code shown below,
+
+out = model.predict_segmentation(
+    inp="sample_images/1_input.jpg",
+    out_fname="bed_out.png"
+)
+
+and this is the predicted output from the original bedroom photo shown below. 
 
 ![Image](bed_out.png)
 
-In this implementation we interactively select the pixel value associated with a particular segment in the photograph that we are trying to isolate. The python program is interactive_plots_with_box.py. 
+To determine the segment or item(s) values that we want, we interactively scan the photo taking note of the pixel values associated with the segments in the photograph that we are trying to isolate. The python program is interactive_plots_with_box.py. As can be seen below, the bed has a value of 61 and the rug has a value of 80. 
 
-We are working with a bedroom picture under the sample_images subdirectory (1_input.jpg). After discriminating all of the major features in the photo as shown above, we then isolate a particular item in the picture (bed), and create a subsequent image showing just that feature with a green rectangle around it. 
+![Image](interactive.png)
+
+In this instance we only label the segement for the bed or value 61. 
+
+label = np.zeros(data.shape )
+#label[data ==68] = 68  #walls
+#label[data ==54] = 54 #window with no drapes
+#
+#label[data >2] = 86 #well defined edges of each segment using sobel filter
+
+#label[data ==80] = 80 #rug
+#label[data ==56] = 56 #table
+#label[data ==77] = 77 #edge of pillows
+#label[data ==18] = 18 #pillows
+label[data ==61]  = 61 #bed
+#label[data ==52]  = 52 #ceiling
+#label[data ==33]  = 33 #floor and dark parts
+#label[data ==68]  = 68 #fchandalier
+#label[data ==77]  = 77 #windows with drapes
+#label[data ==59]  = 59 #lamps
+#label[data ==20]  = 20 #back wall dresser
+#label[data ==56]  = 56 #plant in corner
+
+
+We are working with a bedroom picture under the sample_images subdirectory (1_input.jpg). After discriminating all of the major features in the photo as shown above, we can then isolate a particular item in the picture (bed), and create a subsequent image showing just that feature with a green rectangle around it. 
 
 ![Image](bed_labels_box.png)
 
 We are working in Ubuntu and each python program is driven from an xterm command line using 'python xxxx.py' as the command. 
 
-A second repository is availale here that uses kMean clusters for image segmentation as presented by Vidhya.
 
-Our primary goal is to categorize the different types of grains observed in clastic petrographic thin sections. This is work in progress. Our goal is to estimate the Petrophysical Rock Types and Petrophysical properties from clastic Thin Section photomicrographs.
+
 
 
