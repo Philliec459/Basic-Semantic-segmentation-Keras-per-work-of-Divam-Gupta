@@ -14,20 +14,20 @@ This first repository will be based on using Divam Gupta's pre-trained examples 
 ## Pre-Trained Models
 We use the pre-trained code to create segmentation items from the above photo using load_pretrain_and_create_image.py driven from an xterm. The following pre-pretrain models are available, but we have found the pspnet_50_ADE_20K to work the best in this instance.
 
-model = pspnet_50_ADE_20K() # in between detail - load the pretrained model trained on ADE20k dataset
+    model = pspnet_50_ADE_20K() # in between detail - load the pretrained model trained on ADE20k dataset
 
-#model = pspnet_101_cityscapes() # too much detail - load the pretrained model trained on Cityscapes dataset
+    #model = pspnet_101_cityscapes() # too much detail - load the pretrained model trained on Cityscapes dataset
 
-#model = pspnet_101_voc12() # Just the People - load the pretrained model trained on Pascal VOC 2012 dataset
+    #model = pspnet_101_voc12() # Just the People - load the pretrained model trained on Pascal VOC 2012 dataset
 
 
 ## Segment Predictions
 Our pre-trained model prediction is made with just a few lines of code shown below,
 
-out = model.predict_segmentation(
-    inp="sample_images/1_input.jpg",
-    out_fname="bed_out.png"
-)
+    out = model.predict_segmentation(
+        inp="sample_images/1_input.jpg",
+        out_fname="bed_out.png"
+    )
 
 and the following image is the predicted image segmentation from the original bedroom photo shown above. 
 
